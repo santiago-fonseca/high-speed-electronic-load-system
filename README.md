@@ -55,12 +55,19 @@ Phase 4 — Embedded Firmware Development
 Developed embedded firmware in C targeting the onboard microcontroller, implementing:
 
 Real-time I2C communication protocol for load balancing command and status exchange across all four channels
+
 ADC-based current sensing reading real-time per-channel current draw from onboard sense resistors
+
 DAC output control setting per-channel current demand setpoints with 12-bit resolution
+
 Digital potentiometer control via SPI for fine-grained adjustable current gain adjustment on each load circuit
+
 Real-time load balancing algorithm comparing per-channel ADC readings against target setpoints and issuing correction commands to maintain equal current distribution across all active channels
+
 Overcurrent protection logic monitoring ADC readings against configurable trip thresholds and executing hardware shutdown sequences on fault detection
+
 Overtemperature protection logic reading onboard NTC thermistor ADC channels and issuing thermal shutdown commands before junction temperatures reached critical levels
+
 Reverse-polarity detection through hardware comparator monitoring with firmware-side fault logging and lockout
 
 
