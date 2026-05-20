@@ -30,24 +30,35 @@ The system consists of four independently operable high-speed electronic load ci
 Phase 1 — Requirements Analysis & System Architecture
 
 Conducted technical requirements gathering sessions with Dell's engineering team to define performance targets, interface constraints, and compatibility requirements with existing validation infrastructure
-Defined system architecture including channel topology, protection requirements, communication interface, and performance margins
+
+Defined system architecture including channel topology, protection requirements, communication interface, and performance margin
+
 Established component selection criteria based on switching speed, power dissipation, and thermal constraints
 
 Phase 2 — Circuit Design & Simulation (Multisim)
 
 Designed high-speed MOSFET-based load circuits optimized for fast-switching transient current draw with minimal parasitic inductance in the current path
+
 Simulated load circuit frequency response and transient behavior in National Instruments Multisim to verify switching characteristics prior to physical build
+
 Designed DC offset and adjustable current gain stages using operational amplifier circuits to provide per-channel current control resolution
-Simulated protection circuit behavior including reverse-polarity, overcurrent, and overtemperature response under fault conditions to verify correct trip thresholds before PCB fabrication
+
+Simulated protection circuit behavior including reverse-polarity, overcurrent, and overtemperature response under fault conditions to verify correct trip 
+thresholds before PCB fabrication
 Analyzed gate drive circuit design to verify MOSFET switching speed met slew rate requirements across the full load range
+
 Verified thermal dissipation models for power components under maximum continuous load conditions
 
 Phase 3 — PCB Design & Schematic Capture (Altium Designer)
 
 Completed full schematic capture of all four load circuits, embedded control subsystem, power distribution network, and protection circuitry in Altium Designer
+
 Designed multi-layer PCB layout with deliberate attention to high-frequency current loop minimization, ground plane integrity, and thermal management for power dissipation components
+
 Applied high-speed PCB layout practices including short, low-inductance gate drive traces, Kelvin sensing connections for accurate current measurement, and proper decoupling placement for analog and digital supply domains
+
 Generated complete fabrication outputs including Gerber files, drill files, and BOM for PCB fabrication and assembly
+
 Coordinated component selection and BOM finalization against availability and lead time constraints
 
 Phase 4 — Embedded Firmware Development
@@ -75,26 +86,38 @@ Reverse-polarity detection through hardware comparator monitoring with firmware-
 Phase 5 — Hardware Bring-Up & Component-Level Validation
 
 Executed staged power-up sequence starting from isolated sub-circuits before full system energization
-Verified individual load circuit operation using bench instrumentation including oscilloscopes, current probes, and function generators to confirm switching waveforms matched simulation predictions
+
+Verified individual load circuit operation using bench instrumentation including oscilloscopes, current probes, and function generators to confirm switching 
+waveforms matched simulation predictions
+
 Validated ADC accuracy and linearity across the full current measurement range by comparing firmware-reported values against calibrated bench measurements
 Confirmed DAC output resolution and linearity against target setpoint values across the full control range
+
 Verified digital potentiometer SPI communication and resistance step accuracy against datasheet specifications
+
 Tested I2C bus communication integrity and confirmed correct address decoding and register read/write behavior for all connected devices
 
 Phase 6 — Protection Circuit Validation
 
 Validated reverse-polarity protection by applying reversed supply polarity and confirming correct blocking behavior with no device damage
+
 Verified overcurrent protection trip thresholds by incrementally increasing load demand past the configured limit and confirming hardware shutdown response within specified response time
+
 Validated overtemperature protection by externally heating thermistor sensing elements to above-threshold temperatures and confirming correct firmware shutdown response
+
 Confirmed all protection circuits reset correctly after fault conditions were cleared and system was manually restarted
 
 Phase 7 — Full System Validation Against Dell Specifications
 
 Executed complete slew rate characterization across all four channels using high-bandwidth current probes and oscilloscope capture, confirming 80A/μs performance — 220% above Dell's 25A/μs minimum requirement
+
 Validated 4:1 combined output configuration at maximum combined current draw across all four channels
+
 Validated 2:2 dual-output configuration confirming independent operation of both channel pairs simultaneously without cross-channel interference
+
 Verified load balancing algorithm performance by inducing deliberate channel imbalance and confirming firmware correction response time and steady-state accuracy
 Confirmed full compatibility with Dell's pre-existing validation infrastructure and interface requirements
+
 Delivered complete design documentation package to Dell including schematics, BOM, test reports, and firmware source for sponsor design review and formal acceptance
 
 
